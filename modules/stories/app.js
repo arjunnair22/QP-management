@@ -1,10 +1,8 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import App from '../tabsPaper'
+import QuestionTree from '../questionTree'
 
-import $ from "jquery";
 
-storiesOf('App', module)
-  .add('App Module', () => (
-  	<App/>
-  ))
+
+storiesOf('Question Tree', module)
+    .add('QuestionTree Module', () => ( < QuestionTree / > ))

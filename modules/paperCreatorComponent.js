@@ -13,7 +13,7 @@ var PaperCreatorComponent = React.createClass({
 		return(
 				<div>
 				<PaperCreatorTabs updatePreview = {this.updatePreview}/>
-				<PaperPreviewComponent/>
+				
 				</div>
 			);
 	}

@@ -7,7 +7,7 @@ var App = React.createClass({
 	render: function() {
 		return (
         <div style={{height:'900px' ,position: 'relative'}}>
-            <Layout fixedHeader >
+            <Layout fixedHeader fixedDrawer >
                 <Header scroll title={<span><span style={{ color: '#ddd' }}>Area / </span><strong>The Title</strong></span>}>
                     <Navigation>
                         <a href="">Link</a>

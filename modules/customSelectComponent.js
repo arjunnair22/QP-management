@@ -1,5 +1,4 @@
 import Select from 'react-select';
-import $ from "jquery";
 import React from 'react'
 
 var CustomSelect = React.createClass({
