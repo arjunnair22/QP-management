@@ -151,12 +151,12 @@ app.get('*', (req, res) => {
 //     <style>
 //       @import "https://fonts.googleapis.com/css?family=Roboto";
 //       @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-//       @import "https://npmcdn.com/react-mdl/extra/material.css";
-//       @import "https://npmcdn.com/dialog-polyfill/dialog-polyfill.css";
+//       @import "https://unpkg.com/react-mdl/extra/material.css";
+//       @import "https://unpkg.com/dialog-polyfill/dialog-polyfill.css";
 //     </style>
 //     <div id=app>${appHtml}</div>
-//     <script src="https://npmcdn.com/react-mdl/extra/material.js"></script>
-//     <script src="https://npmcdn.com/dialog-polyfill/dialog-polyfill.js"></script>
+//     <script src="https://unpkg.com/react-mdl/extra/material.js"></script>
+//     <script src="https://unpkg.com/dialog-polyfill/dialog-polyfill.js"></script>
 //     <script src="bundle.js"></script>
 //    `
 // }
