@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-var PaperPreviewComponent = React.createClass({
-	render:function() {
-		return(
-				<div className = 'col-xs-6 col-sm-6 col-md-6 col-lg-6'>
-				</div>
-			);
-	}
+var PaperPreview = React.createClass({
+
+render:function() {
+	<div>
+	<object id = "paper" data = 'file.pdf' type ="application/pdf" />
+	<button type = 'button' onClick= {this.print}> Print </button>
+	</div>
+}
+
 });
-
-export default PaperPreviewComponent;
 
 

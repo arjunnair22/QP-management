@@ -14,9 +14,9 @@ const loaders = [{
   }
 },
 {
-  test: /\.less$/,
-  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
-}
+  test: /\.scss$/,
+  loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+  }  
 ];
 
 module.exports = [{
@@ -30,6 +30,9 @@ module.exports = [{
   },
   module: {
     loaders: loaders
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./modules")]
   },
   resolve: {
     alias: {

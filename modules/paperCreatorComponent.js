@@ -1,21 +1,15 @@
 import React from 'react';
-import PaperCreatorTabs from './tabsPaper';
-import PaperPreviewComponent from './paperPreviewComponent'
-
+import PaperCreatorStepper from './paperCreatorStepper';
 
 var PaperCreatorComponent = React.createClass({
-
-	updatePreview:function(val) {
-		console.log(val)
-	},
 
 	render:function() {
 		return(
 				<div>
-				<PaperCreatorTabs updatePreview = {this.updatePreview}/>
-				
+					<PaperCreatorStepper />
 				</div>
 			);
 	}
 });
-export default PaperCreatorComponent;
+
+export default PaperCreatorStepper;

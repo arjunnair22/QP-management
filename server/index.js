@@ -1,5 +1,7 @@
 var express = require('express')
+var bodyParser = require("body-parser")
 var path = require('path')
+
 var app = express()
 import React from 'react'
 // we'll use this to render our app to an html string
@@ -7,6 +9,11 @@ import { renderToString } from 'react-dom/server'
 // and these to match the url to routes and then render
 import { match, RouterContext } from 'react-router'
 import routes from '../modules/routes'
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 app.use(express.static(path.join(__dirname, 'public')))
 function getArrayFromSQLData(args,args1,args2) {
@@ -31,7 +38,7 @@ var connection = mysql.createConnection({
   database : 'qp'
 });
 connection.connect();
-console.log('board')
+
 var results = {};
 connection.query('SELECT * from board', function(err, boards, fields) {
   if (err) throw err;
@@ -41,8 +48,9 @@ connection.query('SELECT * from board', function(err, boards, fields) {
 
 })
 
+
 app.post('/medium',(req,res)=>{
-  console.log('board1')
+
   var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -53,7 +61,7 @@ app.post('/medium',(req,res)=>{
 var results = {};
 connection.query('SELECT * from medium', function(err, medium, fields) {
   if (err) throw err;
-  results['medium']=getArrayFromSQLData(medium,'mediumId','mediumName');
+  results=getArrayFromSQLData(medium,'mediumId','mediumName');
   res.json(JSON.stringify(results));
 });
 
@@ -61,7 +69,7 @@ connection.query('SELECT * from medium', function(err, medium, fields) {
 })
 
 app.post('/standard',(req,res)=>{
-  console.log('board2')
+  
   var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -72,7 +80,7 @@ app.post('/standard',(req,res)=>{
 var results = {};
 connection.query('SELECT * from standard', function(err, standard, fields) {
   if (err) throw err;
-  results['standard']=getArrayFromSQLData(standard,'standardId','standardName');  
+  results=getArrayFromSQLData(standard,'standardId','standardName');  
   res.json(JSON.stringify(results));
 });
 
@@ -80,26 +88,30 @@ connection.query('SELECT * from standard', function(err, standard, fields) {
 });
 
 app.post('/subject',(req,res)=>{
-  console.log('board3')
+  
   var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   database : 'qp'
 
 });
-  connection.connect();
+connection.connect();
 var results = {};
+if (req.body.standard != undefined && req.body.standard != undefined && req.body.standard != undefined) {
+
 connection.query('SELECT * from subject', function(err, subject, fields) {
   if (err) throw err;
-  results['subject']=getArrayFromSQLData(subject,'subjectId','subjectName');
+  results=getArrayFromSQLData(subject,'subjectId','subjectName');
   res.json(JSON.stringify(results));
 });
-
-
+}
+else{
+  res.end();
+}
 });
 
 app.post('/testType',(req,res)=>{
-console.log('board4')
+
   var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -109,7 +121,7 @@ connection.connect();
 var results = {};
 connection.query('SELECT * from testType', function(err, testtype, fields) {
   if (err) throw err;
-  results['testtype']=getArrayFromSQLData(testtype,'testTypeId','testType');
+  results=getArrayFromSQLData(testtype,'testTypeId','testType');
   res.json(JSON.stringify(results));
 });
 connection.end();

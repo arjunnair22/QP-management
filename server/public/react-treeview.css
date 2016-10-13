@@ -1,6 +1,8 @@
 /* the tree node's style */
 .tree-view {
   overflow-y: hidden;
+  margin: auto;
+  width: 50%;
 }
 
 .tree-view_item {
